@@ -1,0 +1,6 @@
+@CarBooking.WebAPI_HostAddress = http://localhost:5136
+
+GET {{CarBooking.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
