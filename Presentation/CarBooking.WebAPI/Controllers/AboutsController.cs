@@ -1,4 +1,4 @@
-﻿using CarBooking.Application.Features.CQRS.Commands;
+﻿using CarBooking.Application.Features.CQRS.Commands.AboutCommands;
 using CarBooking.Application.Features.CQRS.Handlers.AboutHandlers;
 using CarBooking.Application.Features.CQRS.Queries.AboutQueries;
 using Microsoft.AspNetCore.Http;
@@ -48,7 +48,7 @@ namespace CarBooking.WebAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> RemoveAbout(int id)
         {
-            await _removeAboutCommandHandler.Handle(new RemoveAboutCommand(id);
+            await _removeAboutCommandHandler.Handle(new RemoveAboutCommand(id));
             return Ok("Hakkında Bilgisi Silindi.");
 
         }

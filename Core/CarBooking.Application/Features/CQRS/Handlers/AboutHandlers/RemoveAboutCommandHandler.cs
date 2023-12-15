@@ -1,4 +1,4 @@
-﻿using CarBooking.Application.Features.CQRS.Commands;
+﻿using CarBooking.Application.Features.CQRS.Commands.AboutCommands;
 using CarBooking.Application.Interfaces;
 using CarBooking.Domain.Entities;
 using System;

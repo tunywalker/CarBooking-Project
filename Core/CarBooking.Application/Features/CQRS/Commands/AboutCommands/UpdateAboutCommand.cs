@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBooking.Application.Features.CQRS.Commands
+namespace CarBooking.Application.Features.CQRS.Commands.AboutCommands
 {
-    public class CreateAboutCommand
+    public class UpdateAboutCommand
     {
+        public int AboutID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-
     }
 }

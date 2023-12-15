@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBooking.Application.Features.CQRS.Commands
+namespace CarBooking.Application.Features.CQRS.Commands.AboutCommands
 {
     public class RemoveAboutCommand
     {
@@ -14,7 +14,7 @@ namespace CarBooking.Application.Features.CQRS.Commands
             Id = id;
         }
 
-        
+
 
     }
 }
