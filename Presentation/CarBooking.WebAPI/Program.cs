@@ -1,15 +1,19 @@
 using CarBooking.Application.Features.CQRS.Handlers.AboutHandlers;
 using CarBooking.Application.Features.CQRS.Handlers.BannerHandlers;
 using CarBooking.Application.Features.CQRS.Handlers.BrandHandlers;
+using CarBooking.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBooking.Application.Interfaces;
+using CarBooking.Application.Interfaces.CarInterfaces;
 using CarBooking.Persistance.Context;
 using CarBooking.Persistance.Repositories;
+using CarBooking.Persistance.Repositories.CarRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 //CQRS - About
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
@@ -28,6 +32,13 @@ builder.Services.AddScoped<GetBrandByIdQueryHandler>();
 builder.Services.AddScoped<CreateBrandCommandHandler>();
 builder.Services.AddScoped<UpdateBrandCommandHandler>();
 builder.Services.AddScoped<RemoveBrandCommandHandler>();
+//CQRS - Car
+builder.Services.AddScoped<GetCarQueryHandler>();
+builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
+builder.Services.AddScoped<GetCarByIdQueryHandler>();
+builder.Services.AddScoped<CreateCarCommandHandler>();
+builder.Services.AddScoped<UpdateCarCommandHandler>();
+builder.Services.AddScoped<RemoveCarCommandHandler>();
 
 
 builder.Services.AddControllers();
