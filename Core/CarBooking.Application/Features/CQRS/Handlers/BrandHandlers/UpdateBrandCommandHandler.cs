@@ -12,9 +12,9 @@ namespace CarBooking.Application.Features.CQRS.Handlers.BrandHandlers
 {
     public class UpdateBrandCommandHandler
     {
-        private readonly IRepository<Brand> _repository;
+        private readonly IRepository<Category> _repository;
 
-        public UpdateBrandCommandHandler(IRepository<Brand> repository)
+        public UpdateBrandCommandHandler(IRepository<Category> repository)
         {
             _repository = repository;
         }
