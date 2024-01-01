@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBooking.WebAPI", "Presentation\CarBooking.WebAPI\CarBooking.WebAPI.csproj", "{A83E27F5-58E6-48AD-8455-11B51F2F9ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBooking.Application", "Core\CarBooking.Application\CarBooking.Application.csproj", "{5A57E907-87DB-4730-A139-3558A7D5BFBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBooking.Application", "Core\CarBooking.Application\CarBooking.Application.csproj", "{5A57E907-87DB-4730-A139-3558A7D5BFBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
