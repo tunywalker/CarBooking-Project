@@ -25,7 +25,7 @@ namespace CarBooking.Application.Features.Mediator.Handlers.FeatureHandlers
 
             var value = await _repository.GetByIdAsync(request.FeatureId);
             value.Name = request.Name;
-           await _repository.UpdateAsnyc(value);
+            await _repository.UpdateAsnyc(value);
 
         }
     }
