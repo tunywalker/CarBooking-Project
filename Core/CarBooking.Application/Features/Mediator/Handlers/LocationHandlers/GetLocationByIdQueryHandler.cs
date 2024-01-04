@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace CarBooking.Application.Features.Mediator.Handlers.LocationHandlers
 {
-    public class GetLocationByIdQueryHandler : IRequestHandler<GetLocationByIdQuery,GetLocationByIdQueryResult>
+    public class GetServiceByIdQueryHandler : IRequestHandler<GetLocationByIdQuery,GetLocationByIdQueryResult>
     {
         public IRepository<Location> _repository { get; set; }
-        public GetLocationByIdQueryHandler(IRepository<Location> repository)
+        public GetServiceByIdQueryHandler(IRepository<Location> repository)
         {
             _repository = repository;
         }
