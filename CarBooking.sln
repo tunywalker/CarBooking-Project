@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBooking.Application", "C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{B537BA38-336A-4CAC-A026-0E42C1436B84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBooking.WebUI", "Frontends\CarBooking.WebUI\CarBooking.WebUI.csproj", "{CA11784A-00D3-4BEA-9827-A694252343E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBooking.WebUI", "Frontends\CarBooking.WebUI\CarBooking.WebUI.csproj", "{CA11784A-00D3-4BEA-9827-A694252343E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBooking.Dto", "Frontends\CarBooking.Dto\CarBooking.Dto.csproj", "{4BC66E37-1009-470D-A332-5B1FFAAAF8D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{CA11784A-00D3-4BEA-9827-A694252343E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA11784A-00D3-4BEA-9827-A694252343E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA11784A-00D3-4BEA-9827-A694252343E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC66E37-1009-470D-A332-5B1FFAAAF8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC66E37-1009-470D-A332-5B1FFAAAF8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC66E37-1009-470D-A332-5B1FFAAAF8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC66E37-1009-470D-A332-5B1FFAAAF8D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{A83E27F5-58E6-48AD-8455-11B51F2F9ABA} = {743D5D6C-AAC2-45E8-A635-C0C67E3F9E29}
 		{5A57E907-87DB-4730-A139-3558A7D5BFBC} = {596466A8-C111-4575-B0AB-456EF0817EF2}
 		{CA11784A-00D3-4BEA-9827-A694252343E1} = {B537BA38-336A-4CAC-A026-0E42C1436B84}
+		{4BC66E37-1009-470D-A332-5B1FFAAAF8D9} = {B537BA38-336A-4CAC-A026-0E42C1436B84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B9A262F-44BB-4B6A-BD34-D6C7E3BE3024}
