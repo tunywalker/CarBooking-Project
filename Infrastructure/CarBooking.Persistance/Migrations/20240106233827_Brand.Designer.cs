@@ -4,6 +4,7 @@ using CarBooking.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBooking.Persistance.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20240106233827_Brand")]
+    partial class Brand
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,23 +77,6 @@ namespace CarBooking.Persistance.Migrations
                     b.HasKey("BannerId");
 
                     b.ToTable("Banners");
-                });
-
-            modelBuilder.Entity("CarBooking.Domain.Entities.Brand", b =>
-                {
-                    b.Property<int>("BrandId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BrandId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BrandId");
-
-                    b.ToTable("Brands");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Car", b =>
@@ -227,7 +213,7 @@ namespace CarBooking.Persistance.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Contact", b =>
@@ -423,8 +409,8 @@ namespace CarBooking.Persistance.Migrations
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Car", b =>
                 {
-                    b.HasOne("CarBooking.Domain.Entities.Brand", "Brand")
-                        .WithMany("Cars")
+                    b.HasOne("CarBooking.Domain.Entities.Category", "Brand")
+                        .WithMany()
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -479,11 +465,6 @@ namespace CarBooking.Persistance.Migrations
                     b.Navigation("Car");
 
                     b.Navigation("Pricing");
-                });
-
-            modelBuilder.Entity("CarBooking.Domain.Entities.Brand", b =>
-                {
-                    b.Navigation("Cars");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Car", b =>

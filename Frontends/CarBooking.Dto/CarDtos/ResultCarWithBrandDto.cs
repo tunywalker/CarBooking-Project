@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBooking.Domain.Entities
+namespace CarBooking.Dto.CarDtos
 {
-    public class Car
+    public class ResultCarWithBrandDto
     {
         public int CarId { get; set; }
         public int BrandId { get; set; }
-        public Brand Brand { get; set; }
-      
+        public string BrandName { get; set; }
         public string Model { get; set; }
         public string CoverImageUrl { get; set; }
         public int Km { get; set; }
@@ -20,8 +19,5 @@ namespace CarBooking.Domain.Entities
         public byte Luggage { get; set; }
         public string Fuel { get; set; }
         public string BigImageUrl { get; set; }
-        public List<CarFeature> CarFeatures { get; set; }
-        public List<CarDescription> CarDescriptions { get; set; }
-        public List<CarPricing> Carpricings { get; set; }
     }
 }
