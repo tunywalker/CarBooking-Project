@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CarBooking.Domain.Entities
 {
-    public class Category
+    public class Author
     {
-        public int CategoryId { get; set; }
+        public int AuthorId { get; set; }
         public string Name { get; set; }
-        public  List<Blog> BLogs { get; set; }
+        public string ImageUrl { get; set; }
+        public string Description { get; set; }
     }
 }
