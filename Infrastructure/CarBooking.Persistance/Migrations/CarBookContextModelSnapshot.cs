@@ -103,20 +103,13 @@ namespace CarBooking.Persistance.Migrations
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Blog", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BlogID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogID"));
 
-                    b.Property<string>("AuthorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("AuthorId1")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BlogId")
+                    b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
@@ -133,11 +126,9 @@ namespace CarBooking.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("BlogID");
 
-                    b.HasIndex("AuthorId1");
-
-                    b.HasIndex("BlogId");
+                    b.HasIndex("AuthorId");
 
                     b.HasIndex("CategoryId");
 
@@ -493,13 +484,9 @@ namespace CarBooking.Persistance.Migrations
                 {
                     b.HasOne("CarBooking.Domain.Entities.Author", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId1")
+                        .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("CarBooking.Domain.Entities.Blog", null)
-                        .WithMany("Blogs")
-                        .HasForeignKey("BlogId");
 
                     b.HasOne("CarBooking.Domain.Entities.Category", "Category")
                         .WithMany("BLogs")
@@ -570,11 +557,6 @@ namespace CarBooking.Persistance.Migrations
                     b.Navigation("Car");
 
                     b.Navigation("Pricing");
-                });
-
-            modelBuilder.Entity("CarBooking.Domain.Entities.Blog", b =>
-                {
-                    b.Navigation("Blogs");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Brand", b =>

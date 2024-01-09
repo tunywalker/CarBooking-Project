@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace CarBooking.Application.Features.Mediator.Handlers.LocationHandlers
 {
-    public class RemoveServiceCommandHandler : IRequestHandler<RemoveLocationCommand>
+    public class RemoveLocationCommandHandler : IRequestHandler<RemoveLocationCommand>
     {
         public IRepository<Location> _repository { get; set; }
-        public RemoveServiceCommandHandler(IRepository<Location> repository)
+        public RemoveLocationCommandHandler(IRepository<Location> repository)
         {
             _repository = repository;
         }

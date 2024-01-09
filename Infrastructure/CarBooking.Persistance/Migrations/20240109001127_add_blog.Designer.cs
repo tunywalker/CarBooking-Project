@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBooking.Persistance.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    [Migration("20240106234453_BrandInit2")]
-    partial class BrandInit2
+    [Migration("20240109001127_add_blog")]
+    partial class add_blog
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,31 @@ namespace CarBooking.Persistance.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("CarBooking.Domain.Entities.Author", b =>
+                {
+                    b.Property<int>("AuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AuthorId");
+
+                    b.ToTable("Authors");
+                });
+
             modelBuilder.Entity("CarBooking.Domain.Entities.Banner", b =>
                 {
                     b.Property<int>("BannerId")
@@ -77,6 +102,40 @@ namespace CarBooking.Persistance.Migrations
                     b.HasKey("BannerId");
 
                     b.ToTable("Banners");
+                });
+
+            modelBuilder.Entity("CarBooking.Domain.Entities.Blog", b =>
+                {
+                    b.Property<int>("BlogID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogID"));
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CoverImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BlogID");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Brand", b =>
@@ -111,9 +170,6 @@ namespace CarBooking.Persistance.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CoverImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -141,8 +197,6 @@ namespace CarBooking.Persistance.Migrations
                     b.HasKey("CarId");
 
                     b.HasIndex("BrandId");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Cars");
                 });
@@ -429,6 +483,25 @@ namespace CarBooking.Persistance.Migrations
                     b.ToTable("Testimonials");
                 });
 
+            modelBuilder.Entity("CarBooking.Domain.Entities.Blog", b =>
+                {
+                    b.HasOne("CarBooking.Domain.Entities.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarBooking.Domain.Entities.Category", "Category")
+                        .WithMany("BLogs")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("CarBooking.Domain.Entities.Car", b =>
                 {
                     b.HasOne("CarBooking.Domain.Entities.Brand", "Brand")
@@ -437,15 +510,7 @@ namespace CarBooking.Persistance.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarBooking.Domain.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Brand");
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.CarDescription", b =>
@@ -509,6 +574,11 @@ namespace CarBooking.Persistance.Migrations
                     b.Navigation("CarFeatures");
 
                     b.Navigation("Carpricings");
+                });
+
+            modelBuilder.Entity("CarBooking.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("BLogs");
                 });
 
             modelBuilder.Entity("CarBooking.Domain.Entities.Feature", b =>
