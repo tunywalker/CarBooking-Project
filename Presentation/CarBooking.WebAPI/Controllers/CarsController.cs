@@ -14,6 +14,8 @@ namespace CarBooking.WebAPI.Controllers
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHander;
 		private readonly GetLast5CarsWithBrandQueryHandler _getLast5CarsWithBrandQueryHandler;
 		private readonly GetCarByIdQueryHandler _getCarByIdQueryHander;
+     
+
         private readonly CreateCarCommandHandler _createCarCommandHandler;
         private readonly UpdateCarCommandHandler _updateCarCommandHandler;
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
@@ -21,18 +23,19 @@ namespace CarBooking.WebAPI.Controllers
 
 
 
-		public CarsController(GetCarQueryHandler getCarQueryHander, GetCarWithBrandQueryHandler getCarWithBrandQueryHander, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHander, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler)
-		{
-			_getCarQueryHander = getCarQueryHander;
-			_getCarWithBrandQueryHander = getCarWithBrandQueryHander;
-			_getLast5CarsWithBrandQueryHandler = getLast5CarsWithBrandQueryHandler;
-			_getCarByIdQueryHander = getCarByIdQueryHander;
-			_createCarCommandHandler = createCarCommandHandler;
-			_updateCarCommandHandler = updateCarCommandHandler;
-			_removeCarCommandHandler = removeCarCommandHandler;
-		}
+        public CarsController(GetCarQueryHandler getCarQueryHander, GetCarWithBrandQueryHandler getCarWithBrandQueryHander, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHander, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler)
+        {
+            _getCarQueryHander = getCarQueryHander;
+            _getCarWithBrandQueryHander = getCarWithBrandQueryHander;
+            _getLast5CarsWithBrandQueryHandler = getLast5CarsWithBrandQueryHandler;
+            _getCarByIdQueryHander = getCarByIdQueryHander;
+            _createCarCommandHandler = createCarCommandHandler;
+            _updateCarCommandHandler = updateCarCommandHandler;
+            _removeCarCommandHandler = removeCarCommandHandler;
+            
+        }
 
-		[HttpGet]
+        [HttpGet]
         public async Task<IActionResult> CarList()
         {
             var values = await _getCarQueryHander.Handle();
@@ -51,7 +54,8 @@ namespace CarBooking.WebAPI.Controllers
 			return Ok(values);
 		}
 
-		[HttpGet("{id}")]
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var value = await _getCarByIdQueryHander.Handle(new GetCarByIdQuery(id));

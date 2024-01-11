@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,9 @@ namespace CarBooking.Persistance.Repositories.CarRepository
             return values;
         }
 
-		public List<Car> GetLast5CarsWithBrands()
+       
+
+        public List<Car> GetLast5CarsWithBrands()
 		{
 			var values = _context.Cars.Include(x=>x.Brand).OrderByDescending(x=>x.CarId).Take(5).ToList();
 			return values;

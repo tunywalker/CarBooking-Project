@@ -10,6 +10,8 @@ namespace CarBooking.WebUI.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.v1 = "Hakkýmýzda";
+            ViewBag.v2 = "Vizyonumuz & Misyonumuz";
             return View();
         }
 
