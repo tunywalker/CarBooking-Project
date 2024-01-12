@@ -22,7 +22,7 @@ namespace CarBooking.Persistance.Repositories.CarPricingRepository
 
         public List<CarPricing> GetCarPricingsWithCars()
         {
-            var values = _context.CarPricings.Include(x => x.Car).ThenInclude(z => z.Brand).Include(x => x.Pricing).ToList();
+            var values = _context.CarPricings.Include(x => x.Car).ThenInclude(z => z.Brand).Include(x => x.Pricing).Where(z=>z.PricingId==2).ToList();
             return values;
         }
     }

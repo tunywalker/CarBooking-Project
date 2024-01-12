@@ -19,6 +19,11 @@ namespace CarBooking.Persistance.Repositories.BlogRepository
             _carBookContext = carBookContext;
         }
 
+        public List<Blog> GetAllBlogsWithAuthors()
+        {
+            var values=_carBookContext.Blogs.Include(b => b.Author).Include(c=>c.Category).ToList();
+            return values;
+        }
 
         public List<Blog> GetLast3BlogsWithAuthors()
         {

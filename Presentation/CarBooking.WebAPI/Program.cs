@@ -4,13 +4,16 @@ using CarBooking.Application.Features.CQRS.Handlers.BrandHandlers;
 using CarBooking.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBooking.Application.Features.CQRS.Handlers.CategoryHandlers;
 using CarBooking.Application.Features.CQRS.Handlers.ContactHandlers;
+using CarBooking.Application.Features.Mediator.Handlers.CarPricingHandlers;
 using CarBooking.Application.Interfaces;
 using CarBooking.Application.Interfaces.BlogInterfaces;
 using CarBooking.Application.Interfaces.CarInterfaces;
+using CarBooking.Application.Interfaces.CarPricingInterfaces;
 using CarBooking.Application.Services;
 using CarBooking.Persistance.Context;
 using CarBooking.Persistance.Repositories;
 using CarBooking.Persistance.Repositories.BlogRepository;
+using CarBooking.Persistance.Repositories.CarPricingRepository;
 using CarBooking.Persistance.Repositories.CarRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +23,7 @@ builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 //CQRS - About
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
@@ -42,10 +46,10 @@ builder.Services.AddScoped<RemoveBrandCommandHandler>();
 builder.Services.AddScoped<GetCarQueryHandler>();
 builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
 builder.Services.AddScoped<GetLast5CarsWithBrandQueryHandler>();
-builder.Services.AddScoped<GetCarsWithPricingQueryHandler>();
 
 
-
+//CQRS - CarPricing
+builder.Services.AddScoped<GetCarPricingWithCarQueryHandler>();
 
 builder.Services.AddScoped<GetCarByIdQueryHandler>();
 builder.Services.AddScoped<CreateCarCommandHandler>();
