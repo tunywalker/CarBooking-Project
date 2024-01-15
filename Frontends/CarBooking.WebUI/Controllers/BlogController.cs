@@ -29,5 +29,12 @@ namespace CarBooking.WebUI.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> BlogDetail(int id)
+        {
+            ViewBag.V1 = "Bloglar";
+			ViewBag.V2 = "Blog Detayı ve Yorumlar";
+			return View();
+        }
     }
 }
