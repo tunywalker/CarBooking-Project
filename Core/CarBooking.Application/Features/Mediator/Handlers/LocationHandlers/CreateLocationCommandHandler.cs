@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace CarBooking.Application.Features.Mediator.Handlers.LocationHandlers
 {
-    public class CreateLocationCommandHandler : IRequestHandler<CreateLocationCommand>
+    public class CreateTagCloudCommandHandler : IRequestHandler<CreateLocationCommand>
     {
         public IRepository<Location> _repository { get; set; }
-        public CreateLocationCommandHandler(IRepository<Location> repository)
+        public CreateTagCloudCommandHandler(IRepository<Location> repository)
         {
             _repository = repository;
         }

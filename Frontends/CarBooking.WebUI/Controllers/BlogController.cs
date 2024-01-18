@@ -18,6 +18,7 @@ namespace CarBooking.WebUI.Controllers
         {
             ViewBag.v1 = "Bloglar";
             ViewBag.v2 = "Yazarlarımızın Blogları";
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7182/api/Blogs/GetAllBlogsWithAuthorList");
             if (responseMessage.IsSuccessStatusCode)
@@ -34,7 +35,19 @@ namespace CarBooking.WebUI.Controllers
         {
             ViewBag.V1 = "Bloglar";
 			ViewBag.V2 = "Blog Detayı ve Yorumlar";
+            ViewBag.blogId = id;
+			var client = _httpClientFactory.CreateClient();
+
+			var responseMessage = await client.GetAsync("https://localhost:7182/api/Blogs/" + id);
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				var jsonData = await responseMessage.Content.ReadAsStringAsync();
+				var values = JsonConvert.DeserializeObject<GetBlogByIdDto>(jsonData);
+				return View(values);
+
+			}
 			return View();
+			
         }
     }
 }

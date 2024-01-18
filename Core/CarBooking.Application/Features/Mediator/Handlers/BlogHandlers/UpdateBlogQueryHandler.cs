@@ -25,6 +25,7 @@ namespace CarBooking.Application.Features.Mediator.Handlers.BlogHandlers
             value.AuthorId = request.AuthorId;
            value.CreatedDate = request.CreatedDate;
             value.CategoryId = request.CategoryId;
+            value.Description= request.Description;
             value.CoverImageUrl = request.CoverImageUrl;
             value.CreatedDate=request.CreatedDate;
             await _repository.UpdateAsnyc(value);

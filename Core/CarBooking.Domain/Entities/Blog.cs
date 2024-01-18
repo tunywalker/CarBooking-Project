@@ -19,6 +19,8 @@ namespace CarBooking.Domain.Entities
         public Category Category { get; set; }
         public string Description { get; set; }
 
+        public List<TagCloud> TagClouds { get; set; }
+
 
     }
 }

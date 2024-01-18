@@ -36,6 +36,7 @@ namespace CarBooking.Persistance.Context
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+		public DbSet<TagCloud> TagClouds { get; set; }
 
-    }
+	}
 }
