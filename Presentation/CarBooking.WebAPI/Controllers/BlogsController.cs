@@ -42,6 +42,12 @@ namespace CarBooking.WebAPI.Controllers
             var value = await _mediator.Send(new GetBlogByIdQuery(id));
             return Ok(value);
         }
+        [HttpGet("GetBlogByAuthorId")]
+        public async Task<IActionResult> GetBlogByAuthorId(int id)
+        {
+            var value = await _mediator.Send(new GetBlogByAuthorIdQuery(id));
+            return Ok(value);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateBlog(CreateBlogCommand command)
         {

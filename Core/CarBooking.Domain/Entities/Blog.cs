@@ -20,7 +20,9 @@ namespace CarBooking.Domain.Entities
         public string Description { get; set; }
 
         public List<TagCloud> TagClouds { get; set; }
+		public List<Comment> Comments { get; set; }
 
 
-    }
+
+	}
 }

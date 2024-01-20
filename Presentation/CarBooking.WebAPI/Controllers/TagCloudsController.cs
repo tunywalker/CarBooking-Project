@@ -1,4 +1,5 @@
 ﻿using CarBooking.Application.Features.Mediator.Commands.TagCloudCommands;
+using CarBooking.Application.Features.Mediator.Handlers.TagCloudHandlers;
 using CarBooking.Application.Features.Mediator.Queries.TagCloudQueries;
 
 using MediatR;
@@ -47,6 +48,14 @@ namespace CarBooking.WebAPI.Controllers
         {
             await _mediator.Send(command);
             return Ok("Etiket Bulutu başarıyla güncellendi.");
+        }
+
+        [HttpGet("GetTagCloudByBlogId")]
+        
+        public async Task<IActionResult> GetTagCloudByBlogId(int blogId)
+        {
+           var value= await _mediator.Send(new GetTagClougByBlogIdQuery(blogId));
+            return Ok(value);
         }
     }
 }
