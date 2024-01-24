@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBooking.Application.Features.CQRS.Results.CarResults
+namespace CarBooking.Dto.CarDtos
 {
-    public class GetCarQueryResult
+	public class CreateCarDto
 	{
 		public int CarId { get; set; }
 		public int BrandId { get; set; }
@@ -17,7 +17,6 @@ namespace CarBooking.Application.Features.CQRS.Results.CarResults
 		public string Transmission { get; set; }
 		public byte Seat { get; set; }
 		public byte Luggage { get; set; }
-		public string Fuel { get; set; }
-		public string BigImageUrl { get; set; }
+	
 	}
 }
