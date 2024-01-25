@@ -22,20 +22,43 @@
 							<div class="form-group">
 								<label for="exampleInputEmail1">Marka</label>
 								@Html.DropDownListFor(x => x.BrandId, (List<SelectListItem>
-									)ViewBag.BrandValues,new {@class="form-control"})
-								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+																	)ViewBag.BrandValues, new { @class = "form-control" })
+								anyone else.</small>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputModel">Model</label>
-								<input type="password" class="form-control" id="exampleInputModel" placeholder="Model">
+								<input type="text" class="form-control" asp-for="Model" id="exampleInputModel" placeholder="Model girişi yapınız">
 							</div>
-							<div class="form-group mb-3">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="checkmeout0">
-									<label class="custom-control-label" for="checkmeout0">Check me out !</label>
-								</div>
+							<div class="form-group">
+								<label for="exampleInputcoverImage">Kapak Fotoğrafı:</label>
+								<input type="text" class="form-control" asp-for="CoverImageUrl" id="exampleInputcoverImage" placeholder="Kapak fotoğraf linkini giriniz.">
 							</div>
-							<button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+							<div class="form-group">
+								<label for="exampleInputKm">Km</label>
+								<input type="text" class="form-control" asp-for="Km" id="exampleInputKm" placeholder="Km bilgisi giriniz.">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputTransmission">Vites Türü</label>
+								<input type="text" class="form-control" asp-for="Transmission" id="exampleInputTransmission" placeholder="Vites türünü yazınız.">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputSeat">Koltuk Sayısı</label>
+								<input type="number" class="form-control" asp-for="Seat" id="exampleInputSeat" placeholder="Koltuk sayısını seçiniz.">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputLuggage">Bagaj Sayısı </label>
+								<input type="number" class="form-control" asp-for="Luggage" id="exampleInputLuggage" placeholder="Bagaj sayısı seçiniz.">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputFuel">Yakıt Türü </label>
+								<input type="text" class="form-control" asp-for="Fuel" id="exampleInputFuel" placeholder="Yakıt türünü yazınız.">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputBigImageUrl">Büyük Kapak Fotoğrafı</label>
+								<input type="text" class="form-control" asp-for="BigImageUrl" id="exampleInputBigImageUrl" placeholder="Araç detayında görüntülenecek fotoğraf linkini giriniz.">
+							</div>
+
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Kaydet</button>
 						</form>
 
 					</div> <!-- end card-body-->

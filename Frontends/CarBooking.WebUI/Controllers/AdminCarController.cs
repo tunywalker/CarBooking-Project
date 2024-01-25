@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace CarBooking.WebUI.Controllers
 {
@@ -11,6 +12,7 @@ namespace CarBooking.WebUI.Controllers
 	{
 
 		private readonly IHttpClientFactory _httpClientFactory;
+		
 
 		public AdminCarController(IHttpClientFactory httpClientFactory)
 		{
@@ -51,7 +53,18 @@ namespace CarBooking.WebUI.Controllers
 
 			return View();
 		}
+		[HttpPost]
+		public async Task<IActionResult> CreateCar([FromForm] CreateCarDto carDto)
+		{
+			var client=_httpClientFactory.CreateClient();
+			var jsonData= JsonConvert.SerializeObject(carDto);
+			StringContent stringContent= new StringContent(jsonData,Encoding.UTF8,"application/json");
+			var responseMessage = await client.PostAsync("https://localhost:7182/api/Cars",stringContent);
+			if (responseMessage.IsSuccessStatusCode)
+				return RedirectToAction("Index");
+			return View();
 
 
+		}
 	}
 }
