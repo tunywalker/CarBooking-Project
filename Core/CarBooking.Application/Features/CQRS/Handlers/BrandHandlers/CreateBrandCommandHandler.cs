@@ -12,17 +12,17 @@ namespace CarBooking.Application.Features.CQRS.Handlers.BrandHandlers
 {
     public class CreateBrandCommandHandler
     {
-        private readonly IRepository<Category> _repository;
+        private readonly IRepository<Brand> _repository;
 
-        public CreateBrandCommandHandler(IRepository<Category> repository)
+        public CreateBrandCommandHandler(IRepository<Brand> repository)
         {
             _repository = repository;
         }
 
         public async Task Handle(CreateBrandCommand command)
         {
-            await _repository.CreateAsnyc(new Category
-            {
+            await _repository.CreateAsnyc(new Brand
+			{
                 Name = command.Name
             });
         }

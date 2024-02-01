@@ -12,9 +12,9 @@ namespace CarBooking.Application.Features.CQRS.Handlers.BrandHandlers
 {
     public class RemoveBrandCommandHandler
     {
-        private readonly IRepository<Category> _repository;
+        private readonly IRepository<Brand> _repository;
 
-        public RemoveBrandCommandHandler(IRepository<Category> repository)
+        public RemoveBrandCommandHandler(IRepository<Brand> repository)
         {
             _repository = repository;
         }

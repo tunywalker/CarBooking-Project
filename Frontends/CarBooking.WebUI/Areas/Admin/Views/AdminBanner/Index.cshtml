@@ -1,0 +1,86 @@
+﻿@model List<ResultBannerDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+
+		<!-- page content -->
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Banner Listesi</h4>
+						<p class="card-subtitle mb-4">
+							Anasayfanın 'Banner' alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğü bozulmaması adına lütfen sadece 1 (bir) tane veri girişi yapınız. Aksi durumlarda tema bütünlüğü bozulabilir.
+						</p>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>Başlık</th>
+										<th>Açıklama</th>
+										<th>Video Url</th>
+										<th>Video Açıklama</th>
+										<th>İşlemler</th>
+
+
+
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var item in Model)
+									{
+										count++;
+										<tr>
+											<td>@item.Title</td>
+											<td>@item.Description</td>
+											<td>@item.VideoUrl</td>
+											<td>@item.VideoDescription</td>
+											<td>
+												<div class="btn-group-vertical">
+													<a href="/Admin/AdminBanner/UpdateBanner/@item.BannerId" class="btn btn-outline-dark my-1">Videoyu Görüntüle</a>
+													<a href="/Admin/AdminBanner/UpdateBanner/@item.BannerId" class="btn btn-outline-success my-1">Güncelle</a>
+													<a href="/Admin/AdminBanner/RemoveBanner/@item.BannerId" class="btn btn-outline-danger my-1">Sil</a>
+													
+													
+												</div>
+
+
+
+
+											</td>
+
+										</tr>
+									}
+
+
+								</tbody>
+							</table>
+							<a href="/Admin/AdminBanner/CreateBanner/" class="btn btn-outline-primary">Yeni Banner Girişi</a>
+						</div>
+
+					</div>
+					<!-- end card-body-->
+				</div>
+				<!-- end card -->
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+	</div>
+</div>
+
