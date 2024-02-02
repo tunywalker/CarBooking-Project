@@ -1,12 +1,15 @@
 ﻿using CarBooking.Dto.BannerDtos;
-using CarBooking.Dto.BrandDtos;
+using CarBooking.Dto.BannerDtos;
+using CarBooking.Dto.BannerDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics.Metrics;
+using System.Text;
 
 namespace CarBooking.WebUI.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Route("Admin/AdminBanner")]
 	public class AdminBannerController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
@@ -16,6 +19,9 @@ namespace CarBooking.WebUI.Areas.Admin.Controllers
 		{
 			_httpClientFactory = httpClientFactory;
 		}
+
+		[Route("Index")]
+		[Route("")]
 		public async Task<IActionResult> Index()
 		{
 
@@ -29,6 +35,75 @@ namespace CarBooking.WebUI.Areas.Admin.Controllers
 				return View(values);
 			}
 			return View();
+		}
+		[Route("CreateBanner")]
+		[HttpGet]
+		public IActionResult CreateBanner()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[Route("CreateBanner")]
+		public async Task<IActionResult> CreateBanner([FromForm] CreateBannerDto BannerDto)
+		{
+			var client = _httpClientFactory.CreateClient();
+			var jsonData = JsonConvert.SerializeObject(BannerDto);
+			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+			var responseMessage = await client.PostAsync("https://localhost:7182/api/Banners", stringContent);
+			if (responseMessage.IsSuccessStatusCode)
+				return RedirectToAction("Index", "AdminBanner", new { area = "Admin" });
+			return View();
+
+
+		}
+		
+		[Route("UpdateBanner/{id}")]
+		[HttpGet]
+		public async Task<IActionResult> UpdateBanner(int id)
+		{
+
+			var client = _httpClientFactory.CreateClient();
+			var responseMessage = await client.GetAsync($"https://localhost:7182/api/Banners/{id}");
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				var jsonData = await responseMessage.Content.ReadAsStringAsync();
+				var values = JsonConvert.DeserializeObject<UpdateBannerDto>(jsonData);
+				return View(values);
+			}
+			return View();
+		}
+		
+		[HttpPost]
+		[Route("UpdateBanner/{id}")]
+		public async Task<IActionResult> UpdateBanner(UpdateBannerDto updateBannerDto)
+		{
+
+			var client = _httpClientFactory.CreateClient();
+			var jsonData = JsonConvert.SerializeObject(updateBannerDto);
+			StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+			var responseMessage = await client.PutAsync($"https://localhost:7182/api/Banners/", content);
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				return RedirectToAction("Index", "AdminBanner", new { area = "Admin" });
+			}
+			return View();
+
+
+
+		}
+		
+		[Route("RemoveBanner/{id}")]
+		public async Task<IActionResult> RemoveBanner([FromRoute]int id)
+		{
+			var client = _httpClientFactory.CreateClient();
+
+			var responseMessage = await client.DeleteAsync($"https://localhost:7182/api/Banners?id=" + id);
+			if (responseMessage.IsSuccessStatusCode)
+				return RedirectToAction("Index", "AdminBanner", new { area = "Admin" });
+			return View();
+
+
 		}
 	}
 }

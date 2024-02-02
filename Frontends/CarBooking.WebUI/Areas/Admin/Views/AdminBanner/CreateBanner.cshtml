@@ -1,0 +1,50 @@
+﻿@model CreateBannerDto
+@{
+	ViewData["Title"] = "Banner Oluştur";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+	<div class="container-fluid">
+
+		<!-- page content -->
+		<div class="row">
+			<div class="col-xl-12">
+
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">Yeni Banner Girişi</h4>
+						<p class="card-subtitle mb-4">Banner ile ilgili temel bilgileri eksiksiz doldurmanız önemlidir. Veri girişlerinden sonra kaydet butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+
+						<form method="post">
+
+							<div class="form-group">
+								<label for="exampleInputModel">Başlık </label>
+								<input type="text" class="form-control" asp-for="Title" id="exampleInputBannerTitle" placeholder="Banner adı yazınız.">
+								<label for="exampleInputModel">Açıklama</label>
+								<input type="text" class="form-control" asp-for="Description" id="exampleInputBannerDesciption" placeholder="Banner açıklaması yazınız.">
+								<label for="exampleInputModel">Video Açıklama</label>
+								<input type="text" class="form-control" asp-for="VideoDescription" id="exampleInputBannerVideoDescription" placeholder="Videonun açıklamasını giriniz">
+								<label for="exampleInputModel">Video Url</label>
+								<input type="text" class="form-control" asp-for="VideoUrl" id="exampleInputBannerVideoUrl" placeholder="Videonun youtube embed linkini giriniz.">
+								
+							</div>
+
+
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Banneryı Kaydet</button>
+						</form>
+
+					</div> <!-- end card-body-->
+				</div> <!-- end card-->
+
+			</div>
+			<!-- end card-body-->
+		</div>
+		<!-- end card -->
+
+	</div>
+
+</div>
+
