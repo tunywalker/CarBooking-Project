@@ -1,0 +1,52 @@
+﻿@{
+	ViewData["Title"] = "About Güncelle";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+@model UpdateAboutDto
+
+<div class="page-content">
+	<div class="container-fluid">
+
+		<!-- page content -->
+		<div class="row">
+			<div class="col-xl-12">
+
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">Yeni About Girişi</h4>
+						<p class="card-subtitle mb-4">
+							Anasayfanın ve Hakkımızda sayfasının 'Hakkımızda' alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğü bozulmaması adına lütfen sadece 1 (bir) tane veri girişi yapınız. Aksi durumlarda tema bütünlüğü bozulabilir.
+						</p>
+
+						<form method="post">
+
+							<div class="form-group">
+								<input type="hidden" asp-for="aboutID"/>
+								<label for="exampleInputModel">Başlık </label>
+								<input type="text" class="form-control" asp-for="title" id="exampleInputAboutTitle" placeholder="Başlık bilgisi giriniz.">
+								<label for="exampleInputModel">Açıklama</label>
+								<textarea rows="5" class="form-control" asp-for="description" id="exampleInputAboutDesciption" placeholder="Açıklama giriniz."></textarea>
+								<label for="exampleInputModel">Görsel Adresi</label>
+								<input type="text" class="form-control" asp-for="imageUrl" id="exampleInputAboutVideoDescription" placeholder="Hakkımda kapak fotoğraf adresini giriniz.">
+
+
+
+							</div>
+
+
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Hakkımızda Bilgisini Güncelle</button>
+						</form>
+
+					</div> <!-- end card-body-->
+				</div> <!-- end card-->
+
+			</div>
+			<!-- end card-body-->
+		</div>
+		<!-- end card -->
+
+	</div>
+
+</div>
+

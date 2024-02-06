@@ -1,0 +1,90 @@
+﻿@model List<ResultAllBlogsWithAuthorDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+
+		<!-- page content -->
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Blog Listesi Ve İşlemleri</h4>
+						<p class="card-subtitle mb-4">
+							Bloglarla ilgili silme, güncelleme ve blog listesi erişimini görebilirsiniz. Yeni blog ekmele işlemi admin tarafından yapılmamaktadır. Eğer blog ekleme işlemi yapmak isterseniz sisteme yazar olarak giriş yapmanız gerekmektedir. Her yazar sadece kendi bloglarını düzenleyebilir. Bunun için uygulamada Login/WriterLogin sayfası üzerinden giriş yapabiliriniz.
+						</p>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Başlık</th>
+										<th>Yazar</th>
+										<th>Kategori</th>	
+										<th>Tarih</th>
+										<th>İşlemler</th>
+
+
+
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var item in Model)
+									{
+										count++;
+										<tr>
+											<td>@count</td>
+											<td>@item.title</td>
+											<td>@item.authorName</td>
+											<td>@item.categoryName</td>
+											<td>@item.createdDate</td>
+											
+											<td>
+												<div class="btn-group-vertical">
+													<a href="/Admin/AdminBlog/RemoveBlog/@item.blogID" class="btn btn-outline-danger my-1">Kaldır</a>
+													<a href="/Blog/BlogDetail/@item.blogID" class="btn btn-outline-success my-1">Bloğu Görüntüle</a>
+
+													<a href="/Admin/AdminBlog/BlogListByBlogId/@item.blogID" class="btn btn-outline-primary my-1">Yorumları Görüntüle</a>
+
+
+												</div>
+
+
+
+
+											</td>
+
+										</tr>
+									}
+
+
+								</tbody>
+							</table>
+							<a href="/Admin/AdminBlog/CreateBlog/" class="btn btn-outline-primary">Yeni Blog Girişi</a>
+						</div>
+
+					</div>
+					<!-- end card-body-->
+				</div>
+				<!-- end card -->
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+	</div>
+</div>
+
