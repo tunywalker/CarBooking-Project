@@ -45,6 +45,11 @@ namespace CarBooking.Persistance.Repositories.CommentRepositories
 
 		}
 
+		public List<Comment> GetCommentsByBlogId(int blogId)
+		{
+			return _context.Set<Comment>().ToList().Where(x=>x.BlogID==blogId).ToList();
+		}
+
 		public void Remove(Comment entity)
 		{
 			var value = _context.Comments.Find(entity.CommentID);

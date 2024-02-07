@@ -1,0 +1,42 @@
+﻿@model CreatePricingDto
+@{
+	ViewData["Title"] = "Pricing Oluştur";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">Yeni Ödeme Periyodu Girişi</h4>
+						<p class="card-subtitle mb-4">Ödeme periyodu alanına veri girişini aşağıdaki panelden yapabilirsiniz. </p>
+
+						<form method="post">
+
+							<div class="form-group">
+								<label for="exampleInputModel">Ödeme Periyot Başlığı </label>
+								<input type="text" class="form-control" asp-for="Name" placeholder="Ödeme periyot adını giriniz.">
+
+							</div>
+
+
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Ödeme Periyodunu Kaydet</button>
+						</form>
+
+					</div> 
+				</div> 
+
+			</div>
+			
+		</div>
+		
+
+	</div>
+
+</div>
+
