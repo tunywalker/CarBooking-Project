@@ -1,0 +1,36 @@
+﻿@model UpdateTestimonialDto
+@{
+	ViewData["Title"] = "Yeni Referans Veri Düzenleme Alanı";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Yeni Referans Veri Düzenleme Alanı</h4>
+						<p class="card-subtitle mb-4">Referans güncelleme işleminin yapıldığı sayfamızdır. Bilgileri eksiksiz olarak doldurup güncelle butonuna tıklamanız yeterlidir.</p>
+						<form method="post">
+							<div class="form-group">
+								<input type="hidden" asp-for="testimonialId" />
+								<label for="exampleInputName">Referans Adı Soyadı </label>
+								<input type="text" class="form-control" asp-for="Name" id="exampleInputName" placeholder="Referans Adı Soyadı giriniz...">
+								<label for="exampleInputTitle">Referans Ünvanı </label>
+								<input type="text" class="form-control" asp-for="Title" id="exampleInputTitle" placeholder="Url bilgisi giriniz...">
+								<label for="exampleInputImageUrl">Referans Görsel Url</label>
+								<input type="text" class="form-control" asp-for="imageUrl" id="exampleInputImageUrl" placeholder="Görsel Seçiniz">
+								<label for="exampleInputImageUrl">Referans Yorumu</label>
+								<textarea class="form-control" rows="5" asp-for="Comment" placeholder="Yorumu buraya yazabilirsiniz."></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Referans Bilgisini Güncelle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

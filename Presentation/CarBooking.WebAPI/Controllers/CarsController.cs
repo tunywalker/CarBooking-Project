@@ -1,6 +1,8 @@
 ﻿using CarBooking.Application.Features.CQRS.Commands.CarCommands;
 using CarBooking.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBooking.Application.Features.CQRS.Queries.CarQueries;
+using CarBooking.Application.Features.Mediator.Queries.StatisticsQueries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +21,11 @@ namespace CarBooking.WebAPI.Controllers
         private readonly CreateCarCommandHandler _createCarCommandHandler;
         private readonly UpdateCarCommandHandler _updateCarCommandHandler;
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
+        private readonly IMediator _mediator;
 
 
 
-
-        public CarsController(GetCarQueryHandler getCarQueryHander, GetCarWithBrandQueryHandler getCarWithBrandQueryHander, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHander, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler)
+        public CarsController(GetCarQueryHandler getCarQueryHander, GetCarWithBrandQueryHandler getCarWithBrandQueryHander, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHander, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, IMediator mediator)
         {
             _getCarQueryHander = getCarQueryHander;
             _getCarWithBrandQueryHander = getCarWithBrandQueryHander;
@@ -32,7 +34,7 @@ namespace CarBooking.WebAPI.Controllers
             _createCarCommandHandler = createCarCommandHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
             _removeCarCommandHandler = removeCarCommandHandler;
-            
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -53,7 +55,7 @@ namespace CarBooking.WebAPI.Controllers
 			var values = _getLast5CarsWithBrandQueryHandler.Handle();
 			return Ok(values);
 		}
-
+      
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)

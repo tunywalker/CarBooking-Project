@@ -1,0 +1,33 @@
+﻿@model CreateServiceDto
+@{
+	ViewData["Title"] = "Hizmet Oluştur";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Hizmet Sayfası Veri Girişi</h4>
+						<p class="card-subtitle mb-4">Anasayfa ve Hizmetler bölümünde yer alan hizmet listesinin admin tarafındaki işlemlerini aşağıdaki sayfadan gerçekleştirebilirsiniz. Tema bütünlüğünü korumak adına en fazla 4 adet hizmet girişi yapınız.</p>
+						<form method="post">
+							<div class="form-group">
+								<label for="exampleInputName">Hizmet Başlığı </label>
+								<input type="text" class="form-control" asp-for="Title" id="exampleInputName" placeholder="Hizmet başlığı giriniz..">
+								<label for="exampleInputDescription">Hizmet Açıklaması </label>
+								<input type="text" class="form-control" asp-for="Description" id="exampleInputDescription" placeholder="Hizmet açıklaması giriniz..">
+								<label for="exampleInputIconUrl">Hizmet Icon Url </label>
+								<input type="text" class="form-control" asp-for="IconUrl" id="exampleInputIconUrl" placeholder="Hizmet İcon Url bilgisini giriniz..">
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Hizmet Bilgisini Kaydet</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
