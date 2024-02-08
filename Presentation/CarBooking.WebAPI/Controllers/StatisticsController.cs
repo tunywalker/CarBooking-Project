@@ -20,6 +20,13 @@ namespace CarBooking.WebAPI.Controllers
             var values = await _mediator.Send(new GetCarCountQuery());
             return Ok(values);
         }
+        [HttpGet("BrandNameByMaxCar")]
+
+        public async Task<IActionResult> BrandNameByMaxCar()
+        {
+            var values = await _mediator.Send(new GetBrandNameByMaxCarQuery());
+            return Ok(values);
+        }
 
     }
 }
