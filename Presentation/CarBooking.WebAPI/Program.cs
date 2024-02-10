@@ -28,11 +28,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
+builder.Services.AddScoped(typeof(CarBooking.Application.Interfaces.CarInterfaces.ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
 builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 builder.Services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
-builder.Services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
+builder.Services.AddScoped(typeof(CarBooking.Application.Interfaces.StatisticsInterfaces.IStatisticsRepository), typeof(StatisticsRepository));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 
 //CQRS - About

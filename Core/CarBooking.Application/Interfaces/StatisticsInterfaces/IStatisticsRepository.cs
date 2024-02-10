@@ -18,7 +18,7 @@ namespace CarBooking.Application.Interfaces.StatisticsInterfaces
         decimal GetAvgRentPriceForMonthly();
         int GetCarCountByTransmissionIsAuto();
         string GetBrandNameByMaxCar();
-        string GetBlogTitleByByMaximumBlogComment();
+        string GetBlogTitleByMaximumBlogComment();
         int GetCarCountByBeloveThan1000Km();
         int GetCarCountByGasolineOrDiesel();
         int GetCarCountByFuelElectric();

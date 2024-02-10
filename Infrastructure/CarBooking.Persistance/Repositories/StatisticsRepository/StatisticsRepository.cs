@@ -17,7 +17,7 @@ namespace CarBooking.Persistance.Repositories.StatisticsRepository
             _context = context;
         }
 
-        public string GetBlogTitleByByMaximumBlogComment()
+        public string GetBlogTitleByMaximumBlogComment()
         {
             throw new NotImplementedException();
         }

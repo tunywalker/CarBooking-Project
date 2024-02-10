@@ -8,6 +8,6 @@ namespace CarBooking.Application.Features.Mediator.Results.StatisticsResults
 {
     public class GetAvgRentPriceForMonthlyQueryResult
     {
-         decimal AvgPriceForMonthly { get; set; }
+         public decimal AvgPriceForMonthly { get; set; }
     }
 }
