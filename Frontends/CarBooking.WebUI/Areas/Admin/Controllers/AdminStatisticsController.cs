@@ -57,6 +57,66 @@ namespace CarBooking.WebUI.Areas.Admin.Controllers
 			}
 
 			#endregion
+			#region Blog Sayısı
+			var responseMessage4 = await client.GetAsync("https://localhost:7182/GetBlogCount");
+			if (responseMessage.IsSuccessStatusCode)
+			{
+
+				var jsonData3 = await responseMessage4.Content.ReadAsStringAsync();
+				var values4 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData3);
+				ViewBag.blogCount = values4.blogCount;
+
+			}
+
+			#endregion
+			#region Marka Sayısı
+			var responseMessage5 = await client.GetAsync("https://localhost:7182/GetBrandCount");
+			if (responseMessage.IsSuccessStatusCode)
+			{
+
+				var jsonData5 = await responseMessage5.Content.ReadAsStringAsync();
+				var values5 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData5);
+				ViewBag.BrandCount = values5.brandCount;
+
+			}
+
+			#endregion
+			#region Günlük Ortalama Kiralama Fiyatı
+			var responseMessage6 = await client.GetAsync("https://localhost:7182/GetAvgRentPriceForDaily");
+			if (responseMessage6.IsSuccessStatusCode)
+			{
+
+				var jsonData6 = await responseMessage6.Content.ReadAsStringAsync();
+				var values6 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData6);
+				ViewBag.avgRentPriceForDaily = values6.avgPriceForDaily.ToString("0.00"); ;
+
+			}
+
+			#endregion
+			#region Haftalık Ortalama Kiralama Fiyatı
+			var responseMessage7 = await client.GetAsync("https://localhost:7182/GetAvgRentPriceForWeekly");
+			if (responseMessage7.IsSuccessStatusCode)
+			{
+
+				var jsonData7 = await responseMessage7.Content.ReadAsStringAsync();
+				var values7 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData7);
+				ViewBag.avgRentPriceForWeekly = values7.avgPriceForWeekly.ToString("0.00"); ;
+
+			}
+
+			#endregion
+			#region Aylık Ortalama Kiralama Fiyatı
+			var responseMessage8 = await client.GetAsync("https://localhost:7182/GetAvgRentPriceForMonthly");
+			if (responseMessage8.IsSuccessStatusCode)
+			{
+
+				var jsonData8 = await responseMessage8.Content.ReadAsStringAsync();
+				var values8 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData8);
+				ViewBag.avgRentPriceForMonthly = values8.avgPriceForMonthly.ToString("0.00");
+
+			}
+
+			#endregion
 			return View();
 		}
 	}
