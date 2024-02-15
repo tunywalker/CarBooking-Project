@@ -8,6 +8,6 @@ namespace CarBooking.Application.Features.Mediator.Results.StatisticsResults
 {
     public class GetCarCountByTransmissionIsAutoQueryResult
     {
-        public int CarCountByTransmissionIsAutoQueryResult { get; set; }
+        public int CarCountByTransmissionIsAuto { get; set; }
     }
 }

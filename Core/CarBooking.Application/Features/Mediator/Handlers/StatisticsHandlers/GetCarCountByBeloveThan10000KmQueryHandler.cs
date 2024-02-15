@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace CarBooking.Application.Features.Mediator.Handlers.StatisticsHandlers
 {
-    public class GetCarCountByBeloveThan1000KmQueryHandler : IRequestHandler<GetCarCountByBeloveThan1000KmQuery, GetCarCountByBeloveThan1000KmQueryResult>
+    public class GetCarCountByBeloveThan10000KmQueryHandler : IRequestHandler<GetCarCountByBeloveThan10000KmQuery, GetCarCountByBeloveThan10000KmQueryResult>
     {
         private readonly IStatisticsRepository _repository;
 
-        public GetCarCountByBeloveThan1000KmQueryHandler(IStatisticsRepository repository)
+        public GetCarCountByBeloveThan10000KmQueryHandler(IStatisticsRepository repository)
         {
             _repository = repository;
         }
-        public async Task<GetCarCountByBeloveThan1000KmQueryResult> Handle(GetCarCountByBeloveThan1000KmQuery request, CancellationToken cancellationToken)
+        public async Task<GetCarCountByBeloveThan10000KmQueryResult> Handle(GetCarCountByBeloveThan10000KmQuery request, CancellationToken cancellationToken)
         {
-            int value = _repository.GetCarCountByBeloveThan1000Km();
-            return new GetCarCountByBeloveThan1000KmQueryResult
+            int value = _repository.GetCarCountByBeloveThan10000Km();
+            return new GetCarCountByBeloveThan10000KmQueryResult
             {
-                CarCountByBeloveThan1000Km = value,
+                CarCountByBeloveThan10000Km = value,
             };
         }
 

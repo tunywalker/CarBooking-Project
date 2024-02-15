@@ -23,7 +23,7 @@ namespace CarBooking.Application.Features.Mediator.Handlers.StatisticsHandlers
             int value = _repository.GetCarCountByFuelElectric();
             return new GetCarCountByFuelElectricQueryResult
             {
-                CarCountByFuelElectricQueryResult = value,
+                CarCountByFuelElectric = value,
             };
         }
 

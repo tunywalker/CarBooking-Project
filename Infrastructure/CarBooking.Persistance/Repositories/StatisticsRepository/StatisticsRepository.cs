@@ -93,9 +93,9 @@ namespace CarBooking.Persistance.Repositories.StatisticsRepository
             return value;
         }
 
-        public int GetCarCountByBeloveThan1000Km()
+        public int GetCarCountByBeloveThan10000Km()
         {
-            var value = _context.Cars.Where(x => x.Km <= 1000).Count();
+            var value = _context.Cars.Where(x => x.Km <= 10000).Count();
             return value;
         }
 

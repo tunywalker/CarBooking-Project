@@ -114,5 +114,33 @@ namespace CarBooking.WebAPI.Controllers
             var values = await _mediator.Send(new GetCarBrandAndModelByRentPriceMinQuery());
             return Ok(values);
         }
-    }
+		[HttpGet("GetCarCountByBeloveThan10000Km")]
+
+		public async Task<IActionResult> GetCarCountByBeloveThan10000KmQueryHandler()
+		{
+			var values = await _mediator.Send(new GetCarCountByBeloveThan10000KmQuery());
+			return Ok(values);
+		}
+		[HttpGet("GetCarCountByGasolineOrDiesel")]
+
+		public async Task<IActionResult> GetCarCountByGasolineOrDieselQueryHandler()
+		{
+			var values = await _mediator.Send(new GetCarCountByGasolineOrDieselQuery());
+			return Ok(values);
+		}
+
+		[HttpGet("GetBlogTitleByMaxBlogComment")]
+
+		public async Task<IActionResult> GetBlogTitleByMaxBlogComment()
+		{
+			var values = await _mediator.Send(new GetBlogTitleByMaxBlogCommentQuery());
+			return Ok(values);
+		}
+
+
+		
+
+
+
+	}
 }

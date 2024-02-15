@@ -24,7 +24,7 @@ namespace CarBooking.Application.Features.Mediator.Handlers.StatisticsHandlers
             var BrandName = _statisticsRepository.GetBrandNameByMaxCar();
             return new GetBrandNameByMaxCarQueryResult()
             {
-                BrandName = BrandName,
+                brandNameByMaximumCar = BrandName,
             };
         }
     }

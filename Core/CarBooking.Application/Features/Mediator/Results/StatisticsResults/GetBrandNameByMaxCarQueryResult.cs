@@ -8,6 +8,6 @@ namespace CarBooking.Application.Features.Mediator.Results.StatisticsResults
 {
     public class GetBrandNameByMaxCarQueryResult
     {
-        public string BrandName { get; set; }
+        public string brandNameByMaximumCar { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace CarBooking.Application.Features.Mediator.Handlers.StatisticsHandlers
             var value = _repository.GetCarCountByTransmissionIsAuto();
             return new GetCarCountByTransmissionIsAutoQueryResult
             {
-                CarCountByTransmissionIsAutoQueryResult = value,
+				CarCountByTransmissionIsAuto = value,
             };
         }
 

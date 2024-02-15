@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarBooking.Application.Features.Mediator.Results.StatisticsResults
 {
-    public class GetCarCountByBeloveThan1000KmQueryResult
+    public class GetCarCountByBeloveThan10000KmQueryResult
     {
-        public int CarCountByBeloveThan1000Km { get; set; }
+        public int CarCountByBeloveThan10000Km { get; set; }
     }
 }
