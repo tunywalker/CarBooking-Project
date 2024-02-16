@@ -85,13 +85,7 @@ namespace CarBooking.WebAPI.Controllers
             var values = await _mediator.Send(new GetBrandNameByMaxCarQuery());
             return Ok(values);
         }
-        [HttpGet("GetBlogTitleByByMaximumBlogComment")]
-
-        public async Task<IActionResult> GetBlogTitleByByMaximumBlogComment()
-        {
-            var values = await _mediator.Send(new GetBlogTitleByMaxBlogCommentQuery());
-            return Ok(values);
-        }
+       
 
         [HttpGet("GetCarCountByFuelElectric")]
 

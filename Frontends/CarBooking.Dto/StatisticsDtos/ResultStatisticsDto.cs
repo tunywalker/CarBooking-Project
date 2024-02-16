@@ -16,15 +16,15 @@ namespace CarBooking.Dto.StatisticsDtos
 		public decimal avgPriceForDaily { get; set; }
 		public decimal avgPriceForWeekly { get; set; }
 		public decimal avgPriceForMonthly { get; set; }
-
 		public int carCountByTransmissionIsAuto { get; set; }
-
 		public string brandNameByMaximumCar { get; set; }
         public int carCountByFuelElectric { get; set; }
-
         public int carCountByBeloveThan10000Km { get; set; }
-
         public int carCountByGasolineOrDiesel { get; set; }
+		public string carBrandAndModelByRentPriceMax { get; set; }
+		public string carBrandAndModelByRentPriceMin { get; set; }
+
+        public string BlogTitleByMaxBlogComment { get; set; }
 
 
     }

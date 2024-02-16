@@ -7,85 +7,80 @@
 <div class="page-content">
 	<div class="container-fluid">
 		<!-- Title1-->
-		<div class="row">
-			<div class="col-md-6 col-xl-3">
-				<div class="card bg-primary border-primary">
-					<div class="card-body">
-						<div class="mb-4">
-
-							<h5 class="card-title mb-0 text-white">Toplam Araç Sayısı</h5>
-						</div>
-						<div class="row d-flex align-items-center mb-4">
-							<div class="col-8">
-								<h2 class="d-flex align-items-center mb-0 text-white">
-									# @ViewBag.carCount
-								</h2>
-							</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6 col-xl-3">
+			<div class="card bg-primary border-primary">
+				<div class="card-body">
+					<div class="mb-4">
+						<span class="badge badge-soft-light float-right">Araç</span>
+						<h5 class="card-title mb-0 text-white">Toplam Araç Sayısı</h5>
+					</div>
+					<div class="row d-flex align-items-center mb-4">
+						<div class="col-8">
+							<h2 class="d-flex align-items-center mb-0 text-white">
+								# @ViewBag.carCount
+							</h2>
 						</div>
 					</div>
 				</div>
-			</div> <!-- end col-->
+			</div>
+		</div> <!-- end col-->
 
-			<div class="col-md-6 col-xl-3">
-				<div class="card bg-success border-success">
-					<div class="card-body">
-						<div class="mb-4">
-							<span class="badge badge-soft-light float-right">Mevcut Lokasyonlar</span>
-							<h5 class="card-title mb-0 text-white">Lokasyon Sayısı</h5>
+		<div class="col-md-6 col-xl-3">
+			<div class="card bg-success border-success">
+				<div class="card-body">
+					<div class="mb-4">
+						<span class="badge badge-soft-light float-right">Mevcut Lokasyonlar</span>
+						<h5 class="card-title mb-0 text-white">Lokasyon Sayısı</h5>
+					</div>
+					<div class="row d-flex align-items-center mb-4">
+						<div class="col-8">
+							<h2 class="d-flex align-items-center text-white mb-0">
+								# @ViewBag.locationCount
+							</h2>
 						</div>
-						<div class="row d-flex align-items-center mb-4">
-							<div class="col-8">
-								<h2 class="d-flex align-items-center text-white mb-0">
-									# @ViewBag.locationCount
-								</h2>
-							</div>
-
-						</div>
-
-
 					</div>
 				</div>
-			</div> <!-- end col-->
+			</div>
+		</div> <!-- end col-->
 
-			<div class="col-md-6 col-xl-3">
-				<div class="card bg-warning border-warning">
-					<div class="card-body">
-						<div class="mb-4">
-							<span class="badge badge-soft-light float-right">Toplam Personel</span>
-							<h5 class="card-title mb-0 text-white">Yazar Sayısı</h5>
+		<div class="col-md-6 col-xl-3 ">
+			<div class="card bg-warning border-warning">
+				<div class="card-body">
+					<div class="mb-4">
+						<span class="badge badge-soft-light float-right">Toplam Personel</span>
+						<h5 class="card-title mb-0 text-white">Yazar Sayısı</h5>
+					</div>
+					<div class="row d-flex align-items-center mb-4">
+						<div class="col-8">
+							<h2 class="d-flex align-items-center text-white mb-0">
+								# @ViewBag.authorCount
+							</h2>
 						</div>
-						<div class="row d-flex align-items-center mb-4">
-							<div class="col-8">
-								<h2 class="d-flex align-items-center text-white mb-0">
-									# @ViewBag.authorCount
-								</h2>
-							</div>
-						</div>
-
-
 					</div>
 				</div>
-			</div> <!-- end col-->
+			</div>
+		</div> <!-- end col-->
 
-			<div class="col-md-6 col-xl-3">
-				<div class="card bg-info border-info">
-					<div class="card-body">
-						<div class="mb-4">
-							<span class="badge badge-soft-light float-right">Tüm Zamanlar</span>
-							<h5 class="card-title mb-0 text-white">Blog Sayısı</h5>
+		<div class="col-md-6 col-xl-3">
+			<div class="card bg-info border-info">
+				<div class="card-body">
+					<div class="mb-4">
+						<span class="badge badge-soft-light float-right">Tüm Zamanlar</span>
+						<h5 class="card-title mb-0 text-white">Blog Sayısı</h5>
+					</div>
+					<div class="row d-flex align-items-center mb-4">
+						<div class="col-8">
+							<h2 class="d-flex align-items-center text-white mb-0">
+								# @ViewBag.blogCount
+							</h2>
 						</div>
-						<div class="row d-flex align-items-center mb-4">
-							<div class="col-8">
-								<h2 class="d-flex align-items-center text-white mb-0">
-									# @ViewBag.blogCount
-								</h2>
-							</div>
-
-						</div>
-
-
 
 					</div>
+
+
 				</div>
 			</div>
 		</div> <!-- end col-->
@@ -220,7 +215,7 @@
 					<div class="row d-flex align-items-center mb-4">
 						<div class="col-8">
 							<h2 class="d-flex align-items-center text-white mb-0">
-								""
+								"@ViewBag.BlogTitleByMaxBlogComment"
 							</h2>
 						</div>
 					</div>
@@ -238,7 +233,7 @@
 					<div class="row d-flex align-items-center mb-4">
 						<div class="col-8">
 							<h2 class="d-flex align-items-center text-white mb-0">
-								# 999
+								# @ViewBag.carCountByBeloveThan10000Km
 							</h2>
 						</div>
 					</div>
@@ -295,7 +290,7 @@
 					<div class="row d-flex align-items-center mb-4">
 						<div class="col-8">
 							<h4 class="d-flex align-items-center text-white mb-0">
-								"Wolkswagen - Passat"
+								"@ViewBag.carBrandAndModelByRentPriceMax"
 							</h4>
 						</div>
 					</div>
@@ -313,7 +308,7 @@
 					<div class="row d-flex align-items-center mb-4">
 						<div class="col-8">
 							<h4 class="d-flex align-items-center text-white mb-0">
-								"Ford - Mondeo"
+								"@ViewBag.carBrandAndModelByRentPriceMin"
 							</h4>
 						</div>
 					</div>
@@ -323,11 +318,5 @@
 	</div> <!-- end col-->
 </div>
 <!-- End Title4-->
-</div>
 
-</div>
-
-
-	</div>
-</div>
 

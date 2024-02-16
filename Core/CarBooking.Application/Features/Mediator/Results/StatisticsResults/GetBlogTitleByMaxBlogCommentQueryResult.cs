@@ -8,6 +8,6 @@ namespace CarBooking.Application.Features.Mediator.Results.StatisticsResults
 {
     public class GetBlogTitleByMaxBlogCommentQueryResult
     {
-        public string BlogTitleByMaxBlogCommentQueryResult { get; set; }
+        public string BlogTitleByMaxBlogComment { get; set; }
     }
 }

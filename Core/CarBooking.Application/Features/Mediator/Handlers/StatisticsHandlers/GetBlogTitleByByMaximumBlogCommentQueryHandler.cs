@@ -23,7 +23,7 @@ namespace CarBooking.Application.Features.Mediator.Handlers.StatisticsHandlers
             var value = _repository.GetBlogTitleByMaximumBlogComment();
             return new GetBlogTitleByMaxBlogCommentQueryResult
             {
-                BlogTitleByMaxBlogCommentQueryResult = value,
+				BlogTitleByMaxBlogComment = value,
             };
         }
     }}

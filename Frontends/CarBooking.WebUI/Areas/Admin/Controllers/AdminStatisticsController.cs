@@ -144,24 +144,24 @@ namespace CarBooking.WebUI.Areas.Admin.Controllers
 			#endregion
 
 			#region En Fazla Yoruma Sahip Olan Blog
-			var responseMessage11 = await client.GetAsync("https://localhost:7182/GetBrandNameByMaxCar");
+			var responseMessage11 = await client.GetAsync("https://localhost:7182/GetBlogTitleByMaxBlogComment");
 			if (responseMessage11.IsSuccessStatusCode)
 			{
 
 				var jsonData11 = await responseMessage11.Content.ReadAsStringAsync();
 				var values11 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData11);
-				ViewBag.brandNameByMaximumCar = values11.brandNameByMaximumCar;
+				ViewBag.BlogTitleByMaxBlogComment = values11.BlogTitleByMaxBlogComment;
 
 			}
 			#endregion
 			#region 10000 Km Altındaki Araçlar
-			var responseMessage12 = await client.GetAsync("https://localhost:7182/GetBrandNameByMaxCar");
+			var responseMessage12 = await client.GetAsync("https://localhost:7182/GetCarCountByBeloveThan10000Km");
 			if (responseMessage12.IsSuccessStatusCode)
 			{
 
 				var jsonData12 = await responseMessage12.Content.ReadAsStringAsync();
 				var values12 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData12);
-				ViewBag.brandNameByMaximumCar = values12.brandNameByMaximumCar;
+				ViewBag.carCountByBeloveThan10000Km = values12.carCountByBeloveThan10000Km;
 
 			}
 
@@ -192,7 +192,35 @@ namespace CarBooking.WebUI.Areas.Admin.Controllers
 			}
 
 			#endregion
-			
+
+			#region En Ucuz Araç
+			var responseMessage15 = await client.GetAsync("https://localhost:7182/GetCarBrandAndModelByRentPriceMin");
+			if (responseMessage15.IsSuccessStatusCode)
+			{
+
+				var jsonData15 = await responseMessage15.Content.ReadAsStringAsync();
+				var values15 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData15);
+				ViewBag.carBrandAndModelByRentPriceMin = values15.carBrandAndModelByRentPriceMin;
+
+			}
+
+			#endregion
+
+			#region En Pahalı Araç
+			var responseMessage16 = await client.GetAsync("https://localhost:7182/GetCarBrandAndModelByRentPriceMax");
+			if (responseMessage16.IsSuccessStatusCode)
+			{
+
+				var jsonData16 = await responseMessage16.Content.ReadAsStringAsync();
+				var values16 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData16);
+				ViewBag.carBrandAndModelByRentPriceMax = values16.carBrandAndModelByRentPriceMax;
+
+			}
+
+			#endregion
+
+
+
 
 
 
