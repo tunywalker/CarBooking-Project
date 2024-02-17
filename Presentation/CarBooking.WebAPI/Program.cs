@@ -10,6 +10,7 @@ using CarBooking.Application.Interfaces;
 using CarBooking.Application.Interfaces.BlogInterfaces;
 using CarBooking.Application.Interfaces.CarInterfaces;
 using CarBooking.Application.Interfaces.CarPricingInterfaces;
+using CarBooking.Application.Interfaces.RentACarInterfaces;
 using CarBooking.Application.Interfaces.StatisticsInterfaces;
 using CarBooking.Application.Interfaces.TagCloudInterfaces;
 using CarBooking.Application.Services;
@@ -20,6 +21,7 @@ using CarBooking.Persistance.Repositories.BlogRepository;
 using CarBooking.Persistance.Repositories.CarPricingRepository;
 using CarBooking.Persistance.Repositories.CarRepository;
 using CarBooking.Persistance.Repositories.CommentRepositories;
+using CarBooking.Persistance.Repositories.RentACarRepositories;
 using CarBooking.Persistance.Repositories.StatisticsRepository;
 using CarBooking.Persistance.Repositories.TagCloudRepository;
 
@@ -34,6 +36,7 @@ builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepos
 builder.Services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
 builder.Services.AddScoped(typeof(CarBooking.Application.Interfaces.StatisticsInterfaces.IStatisticsRepository), typeof(StatisticsRepository));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
+builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 
 //CQRS - About
 builder.Services.AddScoped<GetAboutQueryHandler>();
