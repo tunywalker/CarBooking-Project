@@ -1,7 +1,6 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/UILayout/Index.cshtml";
+﻿@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UILayout/Index.cshtml";
 }
 
 <h1>Index</h1>
@@ -9,7 +8,11 @@
 <br />
 <br />
 <br />
-Taşınan veri= @ViewBag.v
+@ViewBag.bookpickdate
+@ViewBag.bookoffdate
+@ViewBag.timepick
+@ViewBag.timeoff
+@ViewBag.locationId
 <br />
 <br />
 <br />
