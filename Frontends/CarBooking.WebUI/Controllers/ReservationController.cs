@@ -1,7 +1,9 @@
 ﻿using CarBooking.Dto.LocationDtos;
+using CarBooking.Dto.ReservationDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace CarBooking.WebUI.Controllers
 {
@@ -13,7 +15,7 @@ namespace CarBooking.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
 
@@ -30,10 +32,25 @@ namespace CarBooking.WebUI.Controllers
                                                 Value = x.LocationId.ToString()
                                             }).ToList();
             ViewBag.v = values2;
-
-            return View();
             ViewBag.v1 = "Araç Kiralama";
             ViewBag.v2 = "Araç Rezervasyon Formu";
+            return View();
+            
+
+
+            
+           
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index (CreateReservationDto reservationDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(reservationDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7182/api/Reservations", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+                return RedirectToAction("Index", "Default");
             return View();
         }
     }
