@@ -16,7 +16,7 @@ namespace CarBooking.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
 
 
@@ -34,6 +34,7 @@ namespace CarBooking.WebUI.Controllers
             ViewBag.v = values2;
             ViewBag.v1 = "Araç Kiralama";
             ViewBag.v2 = "Araç Rezervasyon Formu";
+            ViewBag.v3 = id;
             return View();
             
 

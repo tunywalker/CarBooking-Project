@@ -19,7 +19,7 @@ namespace CarBooking.Domain.Entities
         public int CarID { get; set; }
         public Car Car { get; set; }
 
-
+        public string Status { get; set; }
         public int Age { get; set; }
         public int DriverLicenseAge { get; set; }
         public string? Decription { get; set; }
