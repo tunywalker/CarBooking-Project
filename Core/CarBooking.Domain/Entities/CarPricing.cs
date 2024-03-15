@@ -8,6 +8,10 @@ namespace CarBooking.Domain.Entities
 {
     public class CarPricing
     {
+        public CarPricing()
+        {
+            
+        }
         public int CarPricingId { get; set; }
         public int CarId { get; set; }
         public Car Car { get; set; }
