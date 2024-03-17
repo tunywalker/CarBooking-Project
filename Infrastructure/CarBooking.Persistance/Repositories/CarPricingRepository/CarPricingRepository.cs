@@ -27,49 +27,52 @@ namespace CarBooking.Persistance.Repositories.CarPricingRepository
 			return values;
 		}
 
-		public List<CarPricing> GetTimePricingWithTimePeriod()
-		{
 
-			throw new NotImplementedException();
-			//var values = from x in _context.CarPricings
-			//             group x by x.PricingId into g
-			//             select new
-			//             {
-			//                 CarId = g.Key,
-			//                 DailyPrice = g.Where(y => y.CarPricingId == 2).ToList().Sum(z => z.Amount),
-			//                 WeeklyPrice = g.Where(y => y.CarPricingId == 2).ToList().Sum(z => z.Amount),
-			//                 MonthlyPrice = g.Where(y => y.CarPricingId == 2).ToList().Sum(z => z.Amount)
-			//             };
-			//return values.ToList();
-		}
 
-		List<CarPricingViewModel> ICarPricingRepository.GetCarPricingWithTimePeriod()
+		public List<CarPricingViewModel> GetCarPricingWithTimePeriod()
 		{
 
 			List<CarPricingViewModel> values = new List<CarPricingViewModel>();
 			using (var command = _context.Database.GetDbConnection().CreateCommand())
 			{
-				command.CommandText = "select * from(Select (Brands.Name +' ' +Model) as Model,PricingId,AmountFrom CarPricingsInner Join CarsOn Cars.CarID=CarPricings.CarIdInner Join BrandsOn Brands.BrandId = Cars.BrandId)as SourceTablePivot (Sum(Amount) for PricingId In([1],[2],[3])) as PivotTable;";
-				command.CommandType = System.Data.CommandType.Text;
+				command.CommandText = @"
+    SELECT * 
+    FROM (
+        SELECT 
+			B.Name,
+            C.Model,
+			C.CoverImageUrl,
+            CP.PricingId,
+            CP.Amount
+        FROM CarPricings CP
+        INNER JOIN Cars C ON CP.CarID = C.CarID
+        INNER JOIN Brands B ON C.BrandId = B.BrandId
+    ) AS SourceTable
+    PIVOT (
+        SUM(Amount) 
+        FOR PricingId IN ([1], [2], [3])
+    ) AS PivotTable;"; command.CommandType = System.Data.CommandType.Text;
 				_context.Database.OpenConnection();
 				using (var reader = command.ExecuteReader())
 				{
+
 					while (reader.Read())
 					{
-						CarPricingViewModel carPricingViewModel = new CarPricingViewModel();
-						Enumerable.Range(1, 3).ToList().ForEach(x =>
+						CarPricingViewModel carPricingViewModel = new CarPricingViewModel()
 						{
+							Model = reader["Model"].ToString(),
+							BrandName = reader["Name"].ToString(),
+							CoverImageUrl= reader["CoverImageUrl"].ToString(),
+							Amounts= new List<decimal>()
 							{
-								if (DBNull.Value.Equals(reader[x]))
-								{
-									carPricingViewModel.Amounts.Add(0);
-								}
-								else
-								{
-									carPricingViewModel.Amounts.Add(reader.GetDecimal(x));
-								}
+								Convert.ToDecimal(reader["1"]),
+								Convert.ToDecimal(reader["2"]),
+								Convert.ToDecimal(reader["3"]),
 							}
-						});
+
+
+
+						};
 						values.Add(carPricingViewModel);
 					}
 				}
@@ -77,5 +80,8 @@ namespace CarBooking.Persistance.Repositories.CarPricingRepository
 				return values;
 			}
 		}
+
+
 	}
+
 }

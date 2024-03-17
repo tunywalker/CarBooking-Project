@@ -11,7 +11,6 @@ namespace CarBooking.Application.Interfaces.CarPricingInterfaces
     public interface ICarPricingRepository
     {
         List<CarPricing> GetCarPricingsWithCars();
-        List<CarPricing> GetTimePricingWithTimePeriod();
         List<CarPricingViewModel> GetCarPricingWithTimePeriod();
 
 	}
