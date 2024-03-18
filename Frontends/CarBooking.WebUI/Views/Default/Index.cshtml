@@ -2,6 +2,13 @@
 	ViewData["Title"] = "Index";
 	Layout = null;
 }
+<style>
+
+	#drop option {
+		color: black;
+	}
+
+</style>
 @model ResultLocationDto
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,7 @@
 								<h2>Şimdi Aracınızı Kiralayın</h2>
 								<div class="form-group">
 									<label for="" class="label">Alınacak Lokasyon</label>
-									@Html.DropDownListFor(x => x.LocationId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control; color:black" })
+									@Html.DropDownListFor(x => x.LocationId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control", @id = "drop" })
 
 
 
@@ -79,7 +86,7 @@
 										</div>
 									</div>
 								</div>
-								<p><a href="#" class="btn btn-primary py-3 px-4">Araç Kirala</a></p>
+								<p><a href="/CarPricing/Index" class="btn btn-primary py-3 px-4">Araç Fiyatlarımızı Görün</a></p>
 							</div>
 						</div>
 					</div>
