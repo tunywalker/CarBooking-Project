@@ -15,6 +15,8 @@ namespace CarBooking.Application.Features.RepositoryPattern
 		T GetById(int id);
 
 		List<T> GetCommentsByBlogId(int blogId);
+		public int CommentCountByBlog(int id);
+
 
 	}
 }

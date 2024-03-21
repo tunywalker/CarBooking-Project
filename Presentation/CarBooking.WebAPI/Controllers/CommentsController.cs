@@ -60,6 +60,12 @@ namespace CarBooking.WebAPI.Controllers
 			var value = _commentsRepository.GetCommentsByBlogId(id);
 			return Ok(value);
 		}
+		[HttpGet("CommentCountByBlog")]
+		public IActionResult CommentCountByBlog(int id)
+		{
+			var value = _commentsRepository.CommentCountByBlog(id);
+			return Ok(value);
+		}
 
 
 

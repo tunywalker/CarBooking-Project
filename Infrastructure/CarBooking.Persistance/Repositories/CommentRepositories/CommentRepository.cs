@@ -62,5 +62,12 @@ namespace CarBooking.Persistance.Repositories.CommentRepositories
 			_context.Comments.Update(entity);
 			_context.SaveChanges();
 		}
+
+		
+
+		public int CommentCountByBlog(int id)
+		{
+			return _context.Comments.Where(x => x.BlogID == id).Count();
+		}
 	}
 }

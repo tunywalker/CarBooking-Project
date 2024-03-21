@@ -25,6 +25,27 @@
 				icon: "security"
 			});
 		});
+		$('#btn4').click(function () {
+			Swal.fire({
+				title: "SSS",
+				text: "",
+				icon: "success"
+			});
+		});
+		$('#btn5').click(function () {
+			Swal.fire({
+				title: "Ödeme Yöntemleri",
+				text: "Sizlere daha iyi hizmet vermek adına tarayıcı çerezlerini kullanmaktayız.",
+				icon: "success"
+			});
+		});
+		$('#btn6').click(function () {
+			Swal.fire({
+				title: "Nasıl Çalışır?",
+				text: "",
+				icon: "success"
+			});
+		});
 	});
 </script>
 @foreach (var item in Model)
@@ -62,10 +83,10 @@
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Müşteri Desteği</h2>
 						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">Sıkça Sorulanlar</a></li>
-							<li><a href="#" class="py-2 d-block">Ödeme Yöntemleri</a></li>
+							<li><a href="#" id="btn4" class="py-2 d-block">Sıkça Sorulanlar</a></li>
+							<li><a href="#" id="btn5" class="py-2 d-block">Ödeme Yöntemleri</a></li>
 							<li><a href="/CarPricing/Index" class="py-2 d-block">Kiralama</a></li>
-							<li><a href="#" class="py-2 d-block">Nasıl Çalışır?</a></li>
+							<li><a href="#" id="btn6" class="py-2 d-block">Nasıl Çalışır?</a></li>
 							<li><a href="/Contact/Index" class="py-2 d-block">Bize yazın</a></li>
 						</ul>
 					</div>
