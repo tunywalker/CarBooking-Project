@@ -1,6 +1,7 @@
 ﻿using CarBooking.Dto.BlogDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CarBooking.WebUI.ViewComponents.BlogViewComponents
 {
@@ -16,7 +17,11 @@ namespace CarBooking.WebUI.ViewComponents.BlogViewComponents
 
 		public async Task<IViewComponentResult> InvokeAsync(int id)
 		{
+
 			var client = _httpClientFactory.CreateClient();
+			var responseMessage2 = await client.GetAsync($"https://localhost:7182/api/Comments/CommentCountByBlog?id=" + id);
+			var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+			ViewBag.v2 = jsonData2;
 			var responseMessage = await client.GetAsync($"https://localhost:7182/api/TagClouds/" + id);
 			if (responseMessage.IsSuccessStatusCode)
 			{
@@ -25,7 +30,13 @@ namespace CarBooking.WebUI.ViewComponents.BlogViewComponents
 				return View(values);
 
 			}
+
 			return View();
+
+
+
+
+
 		}
 	}
 }
